@@ -1,0 +1,172 @@
+archetype (adl_version=1.4; uid=a0b2bf1b-ceeb-4d77-b079-aeb9a0f923ba)
+    openEHR-EHR-OBSERVATION.nrs_2002.v0
+
+concept
+    [at0000]
+
+language
+    original_language = <[ISO_639-1::en]>
+
+description
+    original_author = <
+        ["date"] = <"2018-06-21">
+    >
+    lifecycle_state = <"unmanaged">
+    details = <
+        ["en"] = <
+            language = <[ISO_639-1::en]>
+        >
+    >
+    other_details = <
+        ["licence"] = <"This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.">
+        ["custodian_organisation"] = <"openEHR Foundation">
+        ["original_namespace"] = <"org.openehr">
+        ["original_publisher"] = <"openEHR Foundation">
+        ["custodian_namespace"] = <"org.openehr">
+        ["MD5-CAM-1.0.1"] = <"11fab6e3c93d0d54d9d0ef1983a17b6a">
+        ["build_uid"] = <"ec52f3f0-cc5d-3eb5-81b7-1d077370544e">
+    >
+
+definition
+    OBSERVATION[at0000] matches {
+        data matches {
+            HISTORY[at0001] matches {
+                events cardinality matches {0..*; unordered} matches {
+                    EVENT[at0002] matches {
+                        data matches {
+                            ITEM_TREE[at0003] matches {
+                                items cardinality matches {0..*; unordered} matches {
+                                    ELEMENT[at0006] occurrences matches {0..1} matches {
+                                        value matches {
+                                            0|[local::at0005],
+                                            1|[local::at0007],
+                                            2|[local::at0008],
+                                            3|[local::at0009]
+                                        }
+                                    }
+                                    ELEMENT[at0010] occurrences matches {0..1} matches {
+                                        value matches {
+                                            0|[local::at0011],
+                                            1|[local::at0012],
+                                            2|[local::at0013],
+                                            3|[local::at0014]
+                                        }
+                                    }
+                                    ELEMENT[at0015] occurrences matches {0..1} matches {
+                                        value matches {
+                                            0|[local::at0016],
+                                            1|[local::at0017]
+                                        }
+                                    }
+                                    ELEMENT[at0018] occurrences matches {0..1} matches {
+                                        value matches {
+                                            DV_TEXT matches {*}
+                                        }
+                                    }
+                                    ELEMENT[at0019] occurrences matches {0..1} matches {
+                                        value matches {
+                                            DV_COUNT matches {
+                                                magnitude matches {|>0..<7|}
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        state matches {
+                            ITEM_TREE[at0004] matches {*}
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+ontology
+    term_definitions = <
+        ["en"] = <
+            items = <
+                ["at0000"] = <
+                    text = <"Nutrition risk screening 2002">
+                    description = <"Nutrition risk screening 2002 (NRS-2002) is 7 point scale that predicts risk of malnutrition in hospitalized patients.">
+                >
+                ["at0001"] = <
+                    text = <"History">
+                    description = <"*">
+                >
+                ["at0002"] = <
+                    text = <"Any Event">
+                    description = <"Default, unspecified point in time or interval event which may be explicitly defined in a template or at run-time.">
+                >
+                ["at0003"] = <
+                    text = <"ItemTree">
+                    description = <"@ internal @">
+                >
+                ["at0004"] = <
+                    text = <"ItemTree">
+                    description = <"@ internal @">
+                >
+                ["at0006"] = <
+                    text = <"Nutritional impairment">
+                    description = <"*">
+                >
+                ["at0005"] = <
+                    text = <"None">
+                    description = <"Normal nutritional status.">
+                >
+                ["at0007"] = <
+                    text = <"Mild ">
+                    description = <"Weight loss >5% in 3 months or food intake <50-75% of normal in the past week">
+                >
+                ["at0008"] = <
+                    text = <"Moderate">
+                    description = <"Weight loss >5% in 2 months or BMI 18.5-20.5 plus impaired general condition or food intake 25-60%  of normal in past week.">
+                >
+                ["at0009"] = <
+                    text = <"Severe">
+                    description = <"Weight loss >5% in 1 month (>15% in 3 months) or BMI <18.5 plus impaired general condition or food intake 0-25% of normal in past week.">
+                >
+                ["at0010"] = <
+                    text = <"Severity of disease">
+                    description = <"*">
+                >
+                ["at0011"] = <
+                    text = <"Absent">
+                    description = <"Normal nutritional requirement.">
+                >
+                ["at0012"] = <
+                    text = <"Mild">
+                    description = <"A patient with chronic disease, admitted to hospital due to complications. The patient is weak but out of bed regularly. Protein requirement is increased, but can be covered by oral diet or supplements in most cases.">
+                >
+                ["at0013"] = <
+                    text = <"Moderate">
+                    description = <"A patient confined to bed due to illness, e.g. following major abdominal surgery. Protein requirement is substantially increased, but can be covered, although artificial feeding is required in many cases.">
+                >
+                ["at0014"] = <
+                    text = <"Severe">
+                    description = <"A patient in intensive care with assisted ventilation etc. Protein requirement is increased and cannot be covered even by artificial feeding. Protein breakdown and nitrogen loss can be significantly attenuated.">
+                >
+                ["at0015"] = <
+                    text = <"Age">
+                    description = <"*">
+                >
+                ["at0016"] = <
+                    text = <"<70 years">
+                    description = <"*">
+                >
+                ["at0017"] = <
+                    text = <">70 years">
+                    description = <"*">
+                >
+                ["at0018"] = <
+                    text = <"Comment">
+                    description = <"Additional narrative about the measurement of the scale not captured in other fields.">
+                >
+                ["at0019"] = <
+                    text = <"Total score">
+                    description = <"The sum of the ordinal scores recorded for each of the three component responses.">
+                    comment = <"Score >or=3: the patient is nutritionally at-risk and a nutritional care plan is initiated (food, oral supplements, tube feeding and/or parenteral nutrition as appropriate). Score <3: weekly rescreening of the patient.">
+                >
+            >
+        >
+    >
